@@ -1,9 +1,10 @@
-package education.cccp.mobile
+package education.cccp.mobile.viewmodel
 
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import education.cccp.mobile.R
 
 class CustomViewHolder(
     itemView: View,

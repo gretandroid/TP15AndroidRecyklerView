@@ -1,5 +1,6 @@
-package education.cccp.mobile
+package education.cccp.mobile.dao
 
+import education.cccp.mobile.model.Person
 import java.util.*
 
 interface IPersonDao {

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import education.cccp.mobile.R.id.recyclerViewId
 import education.cccp.mobile.R.layout.activity_main
+import education.cccp.mobile.adapter.CustomAdapter
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
