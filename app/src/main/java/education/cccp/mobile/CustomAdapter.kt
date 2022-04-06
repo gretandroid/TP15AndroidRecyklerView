@@ -31,7 +31,10 @@ class CustomAdapter(private val list: List<String>) :
         holder.firstNameTextView.text = list[position]
         holder.lastNameTextView.text = list[position]
         holder.emailTextView.text = list[position]
-        holder.avatarImageView.setImageResource(R.drawable.ic_launcher_background)
+        holder.avatarImageView.setImageResource(
+//            R.drawable.ic_launcher_background
+        android.R.d
+        )
     }
 
     override fun getItemCount() = list.size
@@ -39,9 +42,9 @@ class CustomAdapter(private val list: List<String>) :
     class CustomViewHolder(
         itemView: View,
         var avatarImageView: ImageView = itemView.findViewById(R.id.avatarImageId),
-        var firstNameTextView: TextView = itemView.findViewById(R.id.firstNameTextId),
-        var lastNameTextView: TextView = itemView.findViewById(R.id.lastNameTextId),
-        var emailTextView: TextView = itemView.findViewById(R.id.emailTextId),
+        var firstNameTextView: TextView = itemView.findViewById(R.id.firstNameTextViewId),
+        var lastNameTextView: TextView = itemView.findViewById(R.id.lastNameTextViewId),
+        var emailTextView: TextView = itemView.findViewById(R.id.emailTextViewId),
     ) : RecyclerView.ViewHolder(itemView)
 
 }

@@ -20,34 +20,75 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/firstNameTextId"
+        android:id="@+id/firstNameLabelId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
-        android:layout_marginTop="8dp"
         android:text="first name"
         app:layout_constraintStart_toEndOf="@+id/avatarImageId"
         app:layout_constraintTop_toTopOf="@+id/avatarImageId" />
 
     <TextView
-        android:id="@+id/emailTextId"
+        android:id="@+id/emailLabelId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="5dp"
         android:text="email"
-        app:layout_constraintEnd_toEndOf="@+id/lastNameTextId"
+        app:layout_constraintEnd_toEndOf="@+id/lastNameLabelId"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/lastNameTextId"
-        app:layout_constraintTop_toBottomOf="@+id/lastNameTextId" />
+        app:layout_constraintStart_toStartOf="@+id/lastNameLabelId"
+        app:layout_constraintTop_toBottomOf="@+id/lastNameLabelId" />
 
     <TextView
-        android:id="@+id/lastNameTextId"
+        android:id="@+id/lastNameLabelId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="05dp"
         android:text="last name"
-        app:layout_constraintEnd_toEndOf="@+id/firstNameTextId"
-        app:layout_constraintStart_toStartOf="@+id/firstNameTextId"
-        app:layout_constraintTop_toBottomOf="@+id/firstNameTextId" />
+        app:layout_constraintEnd_toEndOf="@+id/firstNameLabelId"
+        app:layout_constraintStart_toStartOf="@+id/firstNameLabelId"
+        app:layout_constraintTop_toBottomOf="@+id/firstNameLabelId" />
+
+    <TextView
+        android:id="@+id/firstNameTextViewId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/firstNameLabelId"
+        app:layout_constraintStart_toEndOf="@+id/firstNameLabelId"
+        app:layout_constraintTop_toTopOf="@+id/firstNameLabelId"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/lastNameTextViewId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/lastNameLabelId"
+        app:layout_constraintStart_toStartOf="@+id/firstNameTextViewId"
+        app:layout_constraintTop_toTopOf="@+id/lastNameLabelId"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/emailTextViewId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/emailLabelId"
+        app:layout_constraintStart_toStartOf="@+id/lastNameTextViewId"
+        app:layout_constraintTop_toTopOf="@+id/emailLabelId"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/validerButtonId"
+        android:layout_width="140dp"
+        android:layout_height="45dp"
+        android:text="Valider"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/avatarImageId"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@+id/emailLabelId"
+        app:layout_constraintTop_toBottomOf="@+id/emailLabelId" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
