@@ -57,12 +57,7 @@ class PersonContentProvider : ContentProvider() {
     ): Int {
         TODO("Not yet implemented")
     }
-/*
-  public int update(@NonNull Uri uri,
-                      @Nullable ContentValues contentValues,
-                      @Nullable String s,
-                      @Nullable String[] strings)
- */
+
     override fun update(
     uri: Uri,
     contentValues: ContentValues?,
