@@ -51,9 +51,9 @@ class PersonContentProvider : ContentProvider() {
     }
 
     override fun delete(
-        p0: Uri,
-        p1: String?,
-        p2: Array<out String>?
+        uri: Uri,
+        selection: String?,
+        selectionArgs: Array<out String>?
     ): Int {
         TODO("Not yet implemented")
     }
@@ -66,8 +66,8 @@ class PersonContentProvider : ContentProvider() {
     override fun update(
     uri: Uri,
     contentValues: ContentValues?,
-    p2: String?,
-    p3: Array<out String>?
+    selection: String?,
+    selectionArgs: Array<out String>?
 ): Int {
         TODO("Not yet implemented")
     }
