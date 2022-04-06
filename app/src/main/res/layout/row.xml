@@ -5,16 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="22dp"
-    android:paddingTop="22dp"
-    android:paddingRight="22dp">
+    android:paddingLeft="8dp"
+    android:paddingTop="8dp"
+    android:paddingRight="8dp">
 
     <ImageView
         android:id="@+id/avatarImageId"
         android:layout_width="108dp"
         android:layout_height="116dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -23,7 +21,7 @@
         android:id="@+id/firstNameLabelId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
+        android:layout_marginStart="8dp"
         android:text="first name"
         app:layout_constraintStart_toEndOf="@+id/avatarImageId"
         app:layout_constraintTop_toTopOf="@+id/avatarImageId" />
@@ -51,44 +49,47 @@
 
     <TextView
         android:id="@+id/firstNameTextViewId"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="12dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/firstNameLabelId"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/firstNameLabelId"
         app:layout_constraintTop_toTopOf="@+id/firstNameLabelId"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/lastNameTextViewId"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/lastNameLabelId"
+        app:layout_constraintEnd_toEndOf="@+id/firstNameTextViewId"
         app:layout_constraintStart_toStartOf="@+id/firstNameTextViewId"
-        app:layout_constraintTop_toTopOf="@+id/lastNameLabelId"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/lastNameLabelId" />
 
     <TextView
         android:id="@+id/emailTextViewId"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/emailLabelId"
+        app:layout_constraintEnd_toEndOf="@+id/lastNameTextViewId"
         app:layout_constraintStart_toStartOf="@+id/lastNameTextViewId"
         app:layout_constraintTop_toTopOf="@+id/emailLabelId"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/validerButtonId"
-        android:layout_width="140dp"
-        android:layout_height="45dp"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
         android:text="Valider"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/avatarImageId"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toStartOf="@+id/emailLabelId"
-        app:layout_constraintTop_toBottomOf="@+id/emailLabelId" />
+        app:layout_constraintTop_toBottomOf="@+id/emailTextViewId" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
