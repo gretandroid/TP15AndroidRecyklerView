@@ -9,43 +9,45 @@
     android:paddingTop="22dp"
     android:paddingRight="22dp">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
-
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/avatarImageId"
         android:layout_width="108dp"
-        android:layout_height="142dp"
+        android:layout_height="116dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/firstNameTextId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="8dp"
+        android:text="first name"
+        app:layout_constraintStart_toEndOf="@+id/avatarImageId"
+        app:layout_constraintTop_toTopOf="@+id/avatarImageId" />
+
+    <TextView
+        android:id="@+id/emailTextId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="email"
+        app:layout_constraintEnd_toEndOf="@+id/lastNameTextId"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/lastNameTextId"
+        app:layout_constraintTop_toBottomOf="@+id/lastNameTextId" />
+
+    <TextView
+        android:id="@+id/lastNameTextId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="last name"
+        app:layout_constraintEnd_toEndOf="@+id/firstNameTextId"
+        app:layout_constraintStart_toStartOf="@+id/firstNameTextId"
+        app:layout_constraintTop_toBottomOf="@+id/firstNameTextId" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

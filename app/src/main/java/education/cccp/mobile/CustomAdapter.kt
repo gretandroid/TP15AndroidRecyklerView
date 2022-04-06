@@ -1,17 +1,22 @@
 package education.cccp.mobile
 
 import android.view.LayoutInflater.from
+import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
+import education.cccp.mobile.CustomAdapter.CustomViewHolder
 import education.cccp.mobile.R.layout.row
 
 class CustomAdapter(private val list: List<String>) :
-    Adapter<TextViewHolder>() {
+    Adapter<CustomViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): TextViewHolder = TextViewHolder(
+    ): CustomViewHolder = CustomViewHolder(
         from(parent.context).inflate(
             row,
             parent,
@@ -20,11 +25,23 @@ class CustomAdapter(private val list: List<String>) :
     )
 
     override fun onBindViewHolder(
-        holder: TextViewHolder,
+        holder: CustomViewHolder,
         position: Int
     ) {
-        holder.textView.text = list[position]
+        holder.firstNameTextView.text = list[position]
+        holder.lastNameTextView.text = list[position]
+        holder.emailTextView.text = list[position]
+        holder.avatarImageView.setImageResource(R.drawable.ic_launcher_background)
     }
 
     override fun getItemCount() = list.size
+
+    class CustomViewHolder(
+        itemView: View,
+        var avatarImageView: ImageView = itemView.findViewById(R.id.avatarImageId),
+        var firstNameTextView: TextView = itemView.findViewById(R.id.firstNameTextId),
+        var lastNameTextView: TextView = itemView.findViewById(R.id.lastNameTextId),
+        var emailTextView: TextView = itemView.findViewById(R.id.emailTextId),
+    ) : RecyclerView.ViewHolder(itemView)
+
 }
