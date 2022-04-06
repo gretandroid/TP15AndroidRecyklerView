@@ -5,10 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import education.cccp.mobile.R.layout.row
 
-@Suppress("unused")
-class CustomAdapter : Adapter<TextViewHolder>() {
-
-    private val list = mutableListOf<String>()
+class CustomAdapter(private val list: List<String>) :
+    Adapter<TextViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -25,10 +23,8 @@ class CustomAdapter : Adapter<TextViewHolder>() {
         holder: TextViewHolder,
         position: Int
     ) {
-        holder.textView.text=list[position]
+        holder.textView.text = list[position]
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount() = list.size
 }
