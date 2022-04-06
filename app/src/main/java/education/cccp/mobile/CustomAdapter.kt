@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
+import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import education.cccp.mobile.CustomAdapter.CustomViewHolder
 import education.cccp.mobile.R.drawable.ic_launcher_background
 import education.cccp.mobile.R.layout.row
@@ -43,6 +44,5 @@ class CustomAdapter(private val list: List<String>) :
         var firstNameTextView: TextView = itemView.findViewById(R.id.firstNameTextViewId),
         var lastNameTextView: TextView = itemView.findViewById(R.id.lastNameTextViewId),
         var emailTextView: TextView = itemView.findViewById(R.id.emailTextViewId),
-    ) : RecyclerView.ViewHolder(itemView)
-
+    ) : ViewHolder(itemView)
 }
