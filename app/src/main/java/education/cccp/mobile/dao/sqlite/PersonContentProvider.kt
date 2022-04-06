@@ -13,7 +13,7 @@ import education.cccp.mobile.dao.sqlite.DatabaseHelper.Companion.VERSION
 class PersonContentProvider : ContentProvider() {
     companion object {
         @JvmStatic
-        val PERSON_CONTENT_URI by lazy {
+        val PERSON_CONTENT_URI: Uri by lazy {
             parse(
                 BASE_CONTENT_URI +
                         PersonContentProvider::class.java.name

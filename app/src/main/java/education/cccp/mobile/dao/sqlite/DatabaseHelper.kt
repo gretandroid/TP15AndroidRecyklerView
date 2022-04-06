@@ -18,13 +18,11 @@ class DatabaseHelper(
     factory,
     version
 ) {
-
     companion object {
         const val BASE_CONTENT_URI = "content://"
         const val VERSION = 1
         const val NO_URI_RESOURCE_ID_FOUND_RESULT = -1
         const val DB_NAME = "cdh.db"
-
     }
 
     override fun onCreate(sqLiteDatabase: SQLiteDatabase) =
@@ -34,8 +32,8 @@ class DatabaseHelper(
         sqLiteDatabase: SQLiteDatabase,
         previousVersion: Int,
         newVersion: Int
-    ) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS $TABLE_PERSON")
-        onCreate(sqLiteDatabase)
+    ) = sqLiteDatabase.run {
+        execSQL("DROP TABLE IF EXISTS $TABLE_PERSON")
+        onCreate(sqLiteDatabase = this)
     }
 }
