@@ -8,9 +8,9 @@ import education.cccp.mobile.model.Person.Companion.CREATE_TABLE_PERSON
 import education.cccp.mobile.model.Person.Companion.TABLE_PERSON
 
 class DatabaseHelper(
-    context: Context,
+    context: Context?,
     name: String?,
-    factory: CursorFactory,
+    factory: CursorFactory?,
     version: Int
 ) : SQLiteOpenHelper(
     context,

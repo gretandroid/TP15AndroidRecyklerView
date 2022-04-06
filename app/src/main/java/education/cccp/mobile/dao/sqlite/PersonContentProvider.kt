@@ -1,15 +1,13 @@
 package education.cccp.mobile.dao.sqlite
 
 import android.content.ContentProvider
-import android.net.Uri
-import android.content.ContentUris.withAppendedId
 import android.content.ContentValues
 import android.database.Cursor
-
+import android.net.Uri
 import android.net.Uri.parse
 import education.cccp.mobile.dao.sqlite.DatabaseHelper.Companion.BASE_CONTENT_URI
-
-import java.lang.Long.parseLong
+import education.cccp.mobile.dao.sqlite.DatabaseHelper.Companion.DB_NAME
+import education.cccp.mobile.dao.sqlite.DatabaseHelper.Companion.VERSION
 
 
 class PersonContentProvider : ContentProvider() {
@@ -22,35 +20,55 @@ class PersonContentProvider : ContentProvider() {
             )
         }
     }
+    lateinit var databaseHelper: DatabaseHelper
 
-    val DatabaseHelper :DatabaseHelper
     override fun onCreate(): Boolean {
-        TODO("Not yet implemented")
+        databaseHelper = DatabaseHelper(
+            context = context,
+            name = DB_NAME,
+            factory = null,
+            version = VERSION
+        )
+        return true
     }
 
     override fun query(
-        p0: Uri,
-        p1: Array<out String>?,
-        p2: String?,
-        p3: Array<out String>?,
-        p4: String?
+        uri: Uri,
+        columns: Array<out String>?,
+        selection: String?,
+        arguments: Array<out String>?,
+        sort: String?
     ): Cursor? {
         TODO("Not yet implemented")
     }
 
-    override fun getType(p0: Uri): String? {
+    override fun getType(uri: Uri): String? {
         TODO("Not yet implemented")
     }
 
-    override fun insert(p0: Uri, p1: ContentValues?): Uri? {
+    override fun insert(uri: Uri, contentValues: ContentValues?): Uri? {
         TODO("Not yet implemented")
     }
 
-    override fun delete(p0: Uri, p1: String?, p2: Array<out String>?): Int {
+    override fun delete(
+        p0: Uri,
+        p1: String?,
+        p2: Array<out String>?
+    ): Int {
         TODO("Not yet implemented")
     }
-
-    override fun update(p0: Uri, p1: ContentValues?, p2: String?, p3: Array<out String>?): Int {
+/*
+  public int update(@NonNull Uri uri,
+                      @Nullable ContentValues contentValues,
+                      @Nullable String s,
+                      @Nullable String[] strings)
+ */
+    override fun update(
+    uri: Uri,
+    contentValues: ContentValues?,
+    p2: String?,
+    p3: Array<out String>?
+): Int {
         TODO("Not yet implemented")
     }
 
