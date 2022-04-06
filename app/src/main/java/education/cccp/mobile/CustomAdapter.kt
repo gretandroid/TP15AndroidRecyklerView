@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import education.cccp.mobile.CustomAdapter.CustomViewHolder
+import education.cccp.mobile.R.drawable.ic_launcher_background
 import education.cccp.mobile.R.layout.row
 
 class CustomAdapter(private val list: List<String>) :
@@ -31,10 +32,7 @@ class CustomAdapter(private val list: List<String>) :
         holder.firstNameTextView.text = list[position]
         holder.lastNameTextView.text = list[position]
         holder.emailTextView.text = list[position]
-        holder.avatarImageView.setImageResource(
-//            R.drawable.ic_launcher_background
-        android.R.d
-        )
+        holder.avatarImageView.setImageResource(ic_launcher_background)
     }
 
     override fun getItemCount() = list.size
