@@ -4,12 +4,12 @@ import java.io.Serializable
 import java.time.LocalDate
 
 data class Person(
-    val id: Long?,
-    val firstName: String?,
-    val lastName: String?,
-    val email: String?,
-    val nickname: String?,
-//    val dateOfBirth: LocalDate?
+    val id: Int,
+    val firstName: String,
+    val lastName: String,
+    val email: String,
+    val nickname: String,
+    val dateOfBirth: LocalDate
 ) : Serializable {
     companion object {
         private const val serialVersionUID = 1L
