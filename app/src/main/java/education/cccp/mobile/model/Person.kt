@@ -4,22 +4,22 @@ import java.io.Serializable
 import java.time.LocalDate
 
 data class Person(
-    val id: Int,
-    val firstName: String,
-    val lastName: String,
-    val email: String,
-    val nickname: String,
-    val dateOfBirth: LocalDate
+    val id: Long?,
+    val firstName: String?,
+    val lastName: String?,
+    val email: String?,
+    val nickname: String?,
+//    val dateOfBirth: LocalDate?
 ) : Serializable {
     companion object {
         private const val serialVersionUID = 1L
         const val TABLE_PERSON = "table_person"
-        private const val TABLE_PERSON_COL_ID = "id"
-        private const val TABLE_PERSON_COL_FIRST_NAME = "first_name"
-        private const val TABLE_PERSON_COL_LAST_NAME = "last_name"
-        private const val TABLE_PERSON_COL_EMAIL = "email"
-        private const val TABLE_PERSON_COL_NICKNAME = "nickname"
-        private const val TABLE_PERSON_COL_DATE_OF_BIRTH = "date_of_birth"
+        const val TABLE_PERSON_COL_ID = "id"
+        const val TABLE_PERSON_COL_FIRST_NAME = "first_name"
+        const val TABLE_PERSON_COL_LAST_NAME = "last_name"
+        const val TABLE_PERSON_COL_EMAIL = "email"
+        const val TABLE_PERSON_COL_NICKNAME = "nickname"
+        const val TABLE_PERSON_COL_DATE_OF_BIRTH = "date_of_birth"
 
         const val CREATE_TABLE_PERSON =
             """CREATE TABLE $TABLE_PERSON 
