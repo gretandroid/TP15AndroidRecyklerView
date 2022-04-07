@@ -61,7 +61,10 @@ class PersonContentProvider : ContentProvider() {
 
     override fun getType(uri: Uri): String? = null
 
-    override fun insert(uri: Uri, contentValues: ContentValues?): Uri? {
+    override fun insert(
+        uri: Uri,
+        contentValues: ContentValues?
+    ): Uri? {
         dbHelper.writableDatabase.use {
             it.insertOrThrow(
                 TABLE_PERSON,
