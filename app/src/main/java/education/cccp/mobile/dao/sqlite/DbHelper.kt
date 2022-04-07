@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import education.cccp.mobile.model.Person.Companion.CREATE_TABLE_PERSON
 import education.cccp.mobile.model.Person.Companion.TABLE_PERSON
 
-class DatabaseHelper(
+class DbHelper(
     context: Context?,
     name: String?,
     factory: CursorFactory?,
