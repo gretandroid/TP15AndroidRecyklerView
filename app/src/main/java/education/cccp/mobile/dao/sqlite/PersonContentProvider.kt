@@ -1,7 +1,6 @@
 package education.cccp.mobile.dao.sqlite
 
 import android.content.ContentProvider
-import android.content.ContentUris
 import android.content.ContentUris.withAppendedId
 import android.content.ContentValues
 import android.database.Cursor
