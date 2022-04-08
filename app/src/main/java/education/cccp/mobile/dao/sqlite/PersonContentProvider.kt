@@ -23,9 +23,8 @@ class PersonContentProvider : ContentProvider() {
                         PersonContentProvider::class.java.name
             )
         }
+        lateinit var dbHelper: DbHelper
     }
-
-    lateinit var dbHelper: DbHelper
 
     override fun onCreate(): Boolean {
         dbHelper = DbHelper(
@@ -82,16 +81,27 @@ class PersonContentProvider : ContentProvider() {
         uri: Uri,
         selection: String?,
         selectionArgs: Array<out String>?
-    ): Int = 0
+    ): Int = dbHelper.writableDatabase.run {
+        delete(TABLE_PERSON, selection, selectionArgs).apply {
+            return if (this == -1)
+                throw RuntimeException("Failed Update")
+            else this
+        }
+    }
 
     override fun update(
         uri: Uri,
         contentValues: ContentValues?,
         selection: String?,
         selectionArgs: Array<out String>?
-    ): Int = 0
-
-    fun getId(uri: Uri): Long =
+    ): Int =dbHelper.writableDatabase.run {
+        update(TABLE_PERSON, contentValues, selection,selectionArgs).apply {
+            return if (this == -1)
+                throw RuntimeException("Failed Update")
+            else this
+        }
+    }
+    private fun getId(uri: Uri): Long =
         uri.lastPathSegment
             ?.toLong() ?: NO_URI_RESOURCE_ID_FOUND_RESULT
 }

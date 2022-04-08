@@ -7,8 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import education.cccp.mobile.R.id.recyclerViewId
 import education.cccp.mobile.R.layout.activity_main
 import education.cccp.mobile.adapter.CustomAdapter
+import education.cccp.mobile.dao.IPersonDao
+import education.cccp.mobile.dao.sqlite.PersonContentProvider
+import education.cccp.mobile.dao.sqlite.PersonDaoSqlite
 
 class MainActivity : AppCompatActivity() {
+    val personDao:IPersonDao = PersonDaoSqlite(applicationContext)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activity_main)
@@ -32,5 +36,6 @@ class MainActivity : AppCompatActivity() {
                 )
             )
         }
+
     }
 }

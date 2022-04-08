@@ -11,7 +11,7 @@ interface IPersonDao {
 
     fun findOneByEmail(email: String): Person
 
-    fun findOneByNickname(nickname: String): List<Person>
+    fun findAllByNickname(nickname: String): List<Person>
 
     fun count(): Long
 }
