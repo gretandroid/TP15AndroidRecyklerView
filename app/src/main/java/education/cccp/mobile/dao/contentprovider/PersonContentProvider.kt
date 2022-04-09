@@ -1,4 +1,4 @@
-package education.cccp.mobile.dao.sqlite
+package education.cccp.mobile.dao.contentprovider
 
 import android.content.ContentProvider
 import android.content.ContentUris.withAppendedId
@@ -6,11 +6,11 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
 import android.net.Uri.parse
-import education.cccp.mobile.dao.IGenericDao
-import education.cccp.mobile.dao.sqlite.DbHelper.Companion.BASE_CONTENT_URI
-import education.cccp.mobile.dao.sqlite.DbHelper.Companion.DB_NAME
-import education.cccp.mobile.dao.sqlite.DbHelper.Companion.NO_URI_RESOURCE_ID_FOUND_RESULT
-import education.cccp.mobile.dao.sqlite.DbHelper.Companion.VERSION
+import education.cccp.mobile.MainActivity
+import education.cccp.mobile.dao.contentprovider.DbHelper.Companion.BASE_CONTENT_URI
+import education.cccp.mobile.dao.contentprovider.DbHelper.Companion.DB_NAME
+import education.cccp.mobile.dao.contentprovider.DbHelper.Companion.NO_URI_RESOURCE_ID_FOUND_RESULT
+import education.cccp.mobile.dao.contentprovider.DbHelper.Companion.VERSION
 import education.cccp.mobile.model.Person.Companion.TABLE_PERSON
 import education.cccp.mobile.model.Person.Companion.TABLE_PERSON_COL_ID
 

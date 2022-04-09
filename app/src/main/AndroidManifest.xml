@@ -19,9 +19,9 @@
             </intent-filter>
         </activity>
         <provider
-            android:name=".dao.sqlite.PersonContentProvider"
+            android:name=".dao.contentprovider.PersonContentProvider"
             android:authorities=
-                "education.cccp.mobile.dao.sqlite.PersonContentProvider"
+                "education.cccp.mobile.dao.contentprovider.PersonContentProvider"
             android:exported="true" />
     </application>
 

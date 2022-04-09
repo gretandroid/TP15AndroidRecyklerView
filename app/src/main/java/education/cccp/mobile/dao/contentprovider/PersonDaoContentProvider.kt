@@ -1,4 +1,4 @@
-package education.cccp.mobile.dao.sqlite
+package education.cccp.mobile.dao.contentprovider
 
 import android.annotation.SuppressLint
 import android.content.ContentResolver
@@ -6,7 +6,7 @@ import android.content.ContentUris.parseId
 import android.content.ContentValues
 import android.database.Cursor
 import education.cccp.mobile.dao.IPersonDao
-import education.cccp.mobile.dao.sqlite.PersonContentProvider.Companion.PERSON_CONTENT_URI
+import education.cccp.mobile.dao.contentprovider.PersonContentProvider.Companion.PERSON_CONTENT_URI
 import education.cccp.mobile.model.Person
 import education.cccp.mobile.model.Person.Companion.TABLE_PERSON_COL_EMAIL
 import education.cccp.mobile.model.Person.Companion.TABLE_PERSON_COL_FIRST_NAME
@@ -15,7 +15,7 @@ import education.cccp.mobile.model.Person.Companion.TABLE_PERSON_COL_LAST_NAME
 import education.cccp.mobile.model.Person.Companion.TABLE_PERSON_COL_NICKNAME
 import java.lang.Long.parseLong
 
-class PersonDaoSqlite(
+class PersonDaoContentProvider(
     private val contentResolver: ContentResolver
 ) : IPersonDao {
     private fun personToContentValues(person: Person): ContentValues =

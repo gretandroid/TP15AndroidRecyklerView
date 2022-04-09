@@ -8,13 +8,13 @@ import education.cccp.mobile.R.id.recyclerViewId
 import education.cccp.mobile.R.layout.activity_main
 import education.cccp.mobile.adapter.CustomAdapter
 import education.cccp.mobile.dao.IPersonDao
-import education.cccp.mobile.dao.sqlite.PersonDaoSqlite
+import education.cccp.mobile.dao.contentprovider.PersonDaoContentProvider
 
 
 class MainActivity : AppCompatActivity() {
 
     private val personDao: IPersonDao by lazy {
-        PersonDaoSqlite(contentResolver = applicationContext.contentResolver)
+        PersonDaoContentProvider(contentResolver = applicationContext.contentResolver)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,4 +1,4 @@
-package education.cccp.mobile.dao.sqlite
+package education.cccp.mobile.dao.contentprovider
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
