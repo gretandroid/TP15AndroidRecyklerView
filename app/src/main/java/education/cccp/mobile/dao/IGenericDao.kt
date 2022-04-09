@@ -1,7 +1,5 @@
 package education.cccp.mobile.dao
 
-import android.content.Entity
-
 interface IGenericDao<T> {
     fun save(entityType: T): T
 
