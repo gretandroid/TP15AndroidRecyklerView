@@ -16,6 +16,7 @@ import education.cccp.mobile.dao.sqlite.PersonDaoSqlite
 class MainActivity : AppCompatActivity() {
     @Suppress("unused")
     val personDao: IPersonDao = PersonDaoSqlite(applicationContext.contentResolver)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activity_main)
@@ -23,6 +24,5 @@ class MainActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = CustomAdapter(metaSyntaxiqueVariables)
         }
-
     }
 }

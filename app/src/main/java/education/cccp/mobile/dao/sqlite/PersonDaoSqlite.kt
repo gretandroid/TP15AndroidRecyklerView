@@ -41,7 +41,7 @@ class PersonDaoSqlite(
 
     @SuppressLint("Range")
     private fun cursorToPerson(cursor: Cursor?): Person? =
-        if (cursor != null) cursor.run {
+        cursor?.run {
             return Person(
                 id = parseLong(getString(getColumnIndex(TABLE_PERSON_COL_ID))),
                 email = getString(getColumnIndex(TABLE_PERSON_COL_EMAIL)),
@@ -49,7 +49,7 @@ class PersonDaoSqlite(
                 firstName = getString(getColumnIndex(TABLE_PERSON_COL_FIRST_NAME)),
                 lastName = getString(getColumnIndex(TABLE_PERSON_COL_LAST_NAME))
             )
-        } else null
+        }
 
 
     override fun findAll(): List<Person> = contentResolver.query(
