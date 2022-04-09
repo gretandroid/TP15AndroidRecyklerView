@@ -1,12 +1,10 @@
 package education.cccp.mobile.dao.sqlite
 
 import android.annotation.SuppressLint
+import android.content.ContentResolver
 import android.content.ContentUris.parseId
 import android.content.ContentValues
-import android.content.Context
 import android.database.Cursor
-import android.util.Log
-import android.widget.Toast
 import education.cccp.mobile.dao.IPersonDao
 import education.cccp.mobile.dao.sqlite.PersonContentProvider.Companion.PERSON_CONTENT_URI
 import education.cccp.mobile.model.Person
@@ -18,7 +16,7 @@ import education.cccp.mobile.model.Person.Companion.TABLE_PERSON_COL_NICKNAME
 import java.lang.Long.parseLong
 
 class PersonDaoSqlite(
-    private val context: Context
+    private val contentResolver: ContentResolver
 ) : IPersonDao {
     private fun personToContentValues(person: Person): ContentValues =
         ContentValues().apply {
@@ -33,7 +31,7 @@ class PersonDaoSqlite(
 
     override fun save(person: Person): Person = person.copy(
         id = parseId(
-            context.contentResolver.insert(
+            contentResolver.insert(
                 PERSON_CONTENT_URI,
                 personToContentValues(person)
             )!!
@@ -42,38 +40,33 @@ class PersonDaoSqlite(
 
 
     @SuppressLint("Range")
-    private fun cursorToPerson(cursor: Cursor?): Person? {
-        return if (cursor == null) null
-        else Person(
-            id = parseLong(cursor.getString(cursor.getColumnIndex(TABLE_PERSON_COL_ID))),
-            email = cursor.getString(cursor.getColumnIndex(TABLE_PERSON_COL_EMAIL)),
-            nickname = cursor.getString(cursor.getColumnIndex(TABLE_PERSON_COL_NICKNAME)),
-            firstName = cursor.getString(cursor.getColumnIndex(TABLE_PERSON_COL_FIRST_NAME)),
-            lastName = cursor.getString(cursor.getColumnIndex(TABLE_PERSON_COL_LAST_NAME))
-        )
-    }
+    private fun cursorToPerson(cursor: Cursor?): Person? =
+        if (cursor != null) cursor.run {
+            return Person(
+                id = parseLong(getString(getColumnIndex(TABLE_PERSON_COL_ID))),
+                email = getString(getColumnIndex(TABLE_PERSON_COL_EMAIL)),
+                nickname = getString(getColumnIndex(TABLE_PERSON_COL_NICKNAME)),
+                firstName = getString(getColumnIndex(TABLE_PERSON_COL_FIRST_NAME)),
+                lastName = getString(getColumnIndex(TABLE_PERSON_COL_LAST_NAME))
+            )
+        } else null
 
-    @SuppressLint("Range")
-    override fun findAll(): List<Person> {
-        context.contentResolver.query(
-            PERSON_CONTENT_URI,
-            null,
-            null,
-            null,
-            null,
-            null
-        ).run {
-            if (this == null) return emptyList()
-            else {
-                return mutableListOf<Person>().apply {
-                    if (moveToFirst()) {
-                        do cursorToPerson(this@run).run {
-                            if (this != null) add(this)
-                        }
-                        while (moveToNext())
-                    }
-                }
-            }
+
+    override fun findAll(): List<Person> = contentResolver.query(
+        PERSON_CONTENT_URI,
+        null,
+        null,
+        null,
+        null,
+        null
+    ).run {
+        return if (this == null) emptyList()
+        else mutableListOf<Person>().apply {
+            if (moveToFirst())
+                do {
+                    cursorToPerson(cursor = this@run)
+                        .run { if (this != null) add(element = this) }
+                } while (moveToNext())
         }
     }
 
