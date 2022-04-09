@@ -17,6 +17,6 @@ class PersonDaoContentProviderInstrumentedTest {
 
     @Test
     fun test_dao_initialisation_is_ok() {
-        println("personDao.count() : ${personDao.findAll().size}")
+        println("personDao.findAll().size : ${personDao.findAll().size}")
     }
 }
