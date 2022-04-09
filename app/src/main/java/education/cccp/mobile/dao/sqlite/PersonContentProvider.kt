@@ -96,7 +96,7 @@ class PersonContentProvider : ContentProvider() {
         selectionArgs: Array<out String>?
     ): Int =dbHelper.writableDatabase.run {
         update(TABLE_PERSON, contentValues, selection,selectionArgs).apply {
-            return if (this == -1)
+            return if (this == NO_URI_RESOURCE_ID_FOUND_RESULT.toInt())
                 throw RuntimeException("Failed Update")
             else this
         }
