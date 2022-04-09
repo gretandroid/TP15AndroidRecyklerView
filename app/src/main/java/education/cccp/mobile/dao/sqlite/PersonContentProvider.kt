@@ -6,12 +6,16 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
 import android.net.Uri.parse
+import education.cccp.mobile.dao.IGenericDao
 import education.cccp.mobile.dao.sqlite.DbHelper.Companion.BASE_CONTENT_URI
 import education.cccp.mobile.dao.sqlite.DbHelper.Companion.DB_NAME
 import education.cccp.mobile.dao.sqlite.DbHelper.Companion.NO_URI_RESOURCE_ID_FOUND_RESULT
 import education.cccp.mobile.dao.sqlite.DbHelper.Companion.VERSION
 import education.cccp.mobile.model.Person.Companion.TABLE_PERSON
 import education.cccp.mobile.model.Person.Companion.TABLE_PERSON_COL_ID
+
+//abstract class AbstractGenericContentProvider<T>
+//    : IGenericDao<T>, ContentProvider()
 
 
 class PersonContentProvider : ContentProvider() {
@@ -94,13 +98,14 @@ class PersonContentProvider : ContentProvider() {
         contentValues: ContentValues?,
         selection: String?,
         selectionArgs: Array<out String>?
-    ): Int =dbHelper.writableDatabase.run {
-        update(TABLE_PERSON, contentValues, selection,selectionArgs).apply {
+    ): Int = dbHelper.writableDatabase.run {
+        update(TABLE_PERSON, contentValues, selection, selectionArgs).apply {
             return if (this == NO_URI_RESOURCE_ID_FOUND_RESULT.toInt())
                 throw RuntimeException("Failed Update")
             else this
         }
     }
+
     private fun getId(uri: Uri): Long =
         uri.lastPathSegment
             ?.toLong() ?: NO_URI_RESOURCE_ID_FOUND_RESULT
