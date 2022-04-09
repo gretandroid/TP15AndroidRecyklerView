@@ -11,11 +11,11 @@ import education.cccp.mobile.dao.IPersonDao
 import education.cccp.mobile.dao.sqlite.PersonDaoSqlite
 
 
-
-
 class MainActivity : AppCompatActivity() {
-    @Suppress("unused")
-    val personDao: IPersonDao = PersonDaoSqlite(applicationContext.contentResolver)
+
+    private val personDao: IPersonDao by lazy {
+        PersonDaoSqlite(contentResolver = applicationContext.contentResolver)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

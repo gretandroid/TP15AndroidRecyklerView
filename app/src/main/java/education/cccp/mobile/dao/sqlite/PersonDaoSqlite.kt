@@ -42,7 +42,7 @@ class PersonDaoSqlite(
     @SuppressLint("Range")
     private fun cursorToPerson(cursor: Cursor?): Person? =
         cursor?.run {
-            return Person(
+            return@cursorToPerson Person(
                 id = parseLong(getString(getColumnIndex(TABLE_PERSON_COL_ID))),
                 email = getString(getColumnIndex(TABLE_PERSON_COL_EMAIL)),
                 nickname = getString(getColumnIndex(TABLE_PERSON_COL_NICKNAME)),
@@ -63,10 +63,9 @@ class PersonDaoSqlite(
         return if (this == null) emptyList()
         else mutableListOf<Person>().apply {
             if (moveToFirst())
-                do {
-                    cursorToPerson(cursor = this@run)
-                        .run { if (this != null) add(element = this) }
-                } while (moveToNext())
+                do cursorToPerson(cursor = this@run)
+                    .run { if (this != null) add(element = this) }
+                while (moveToNext())
         }
     }
 
