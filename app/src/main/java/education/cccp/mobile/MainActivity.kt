@@ -9,12 +9,15 @@ import education.cccp.mobile.R.layout.activity_main
 import education.cccp.mobile.adapter.CustomAdapter
 import education.cccp.mobile.dao.IPersonDao
 import education.cccp.mobile.dao.contentprovider.PersonDaoContentProvider
+import education.cccp.mobile.model.metaSyntaxiqueVariables
 
 
 class MainActivity : AppCompatActivity() {
-
+    @Suppress("unused")
     private val personDao: IPersonDao by lazy {
-        PersonDaoContentProvider(contentResolver = applicationContext.contentResolver)
+        PersonDaoContentProvider(
+            contentResolver = applicationContext.contentResolver
+        )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
