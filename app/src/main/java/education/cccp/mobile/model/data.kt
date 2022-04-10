@@ -3,6 +3,7 @@ package education.cccp.mobile.model
 import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.database.Cursor
+import education.cccp.mobile.dao.IPersonDao
 import education.cccp.mobile.model.Person.Companion.TABLE_PERSON_COL_FIRST_NAME
 import education.cccp.mobile.model.Person.Companion.TABLE_PERSON_COL_ID
 import education.cccp.mobile.model.Person.Companion.TABLE_PERSON_COL_LAST_NAME
@@ -104,7 +105,10 @@ fun cursorToPerson(cursor: Cursor?): Person? =
         )
     }
 
-val generatedPersonsContentValues: List<ContentValues>
-    get() = generatedPersons.map {
-        personToContentValues(it)
-    }
+fun populateDataBase(personDao: IPersonDao): List<Person> = generatedPersons.map(personDao::save)
+
+//val generatedPersonsContentValues: List<ContentValues>
+//    get() = generatedPersons.map {
+//        personToContentValues(it)
+//    }
+

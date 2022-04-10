@@ -9,7 +9,9 @@ import education.cccp.mobile.R.layout.activity_main
 import education.cccp.mobile.adapter.CustomAdapter
 import education.cccp.mobile.dao.IPersonDao
 import education.cccp.mobile.dao.contentprovider.PersonDaoContentProvider
+import education.cccp.mobile.model.Person
 import education.cccp.mobile.model.metaSyntaxiqueVariables
+import education.cccp.mobile.model.populateDataBase
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,10 +24,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val persons: List<Person> = populateDataBase(personDao)
         setContentView(activity_main)
         findViewById<RecyclerView>(recyclerViewId).apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = CustomAdapter(metaSyntaxiqueVariables)
         }
     }
+
+
 }
