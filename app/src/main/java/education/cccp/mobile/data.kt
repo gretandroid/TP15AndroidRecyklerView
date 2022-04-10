@@ -21,19 +21,6 @@ val metaSyntaxiqueVariables: List<String>
         "thud"
     )
 
-fun personsGenerator(): List<Person> {
-    metaSyntaxiquePeoples.map {
-        Person(
-            id = null,
-            firstName = it.keys.first(),
-            lastName = it.values.first(),
-            email = "${it.keys.first().lowercase()}.${it.values.first().lowercase()}@acme.com",
-            nickname = "${it.keys.first().lowercase()}.${it.values.first().lowercase()}"
-        )
-    }
-    return listOf()
-}
-
 val metaSyntaxiquePeoples: List<Map<String, String>>
     get() = listOf(
         mapOf(pair = "Ashok" to "Kumar"),
@@ -76,3 +63,14 @@ val metaSyntaxiquePeoples: List<Map<String, String>>
         mapOf(pair = "Yvonne" to "Yoe"),
         mapOf(pair = "Zachery" to "Zoe")
     )
+
+val generatedPersons: List<Person>
+    get() = metaSyntaxiquePeoples.map {
+        Person(
+            id = null,
+            firstName = it.keys.first(),
+            lastName = it.values.first(),
+            email = "${it.keys.first().lowercase()}.${it.values.first().lowercase()}@acme.com",
+            nickname = "${it.keys.first().lowercase()}.${it.values.first().lowercase()}"
+        )
+    }
