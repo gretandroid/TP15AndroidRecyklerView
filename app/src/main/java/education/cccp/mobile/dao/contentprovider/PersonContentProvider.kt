@@ -6,7 +6,6 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
 import android.net.Uri.parse
-import education.cccp.mobile.MainActivity
 import education.cccp.mobile.dao.contentprovider.DbHelper.Companion.BASE_CONTENT_URI
 import education.cccp.mobile.dao.contentprovider.DbHelper.Companion.DB_NAME
 import education.cccp.mobile.dao.contentprovider.DbHelper.Companion.NO_URI_RESOURCE_ID_FOUND_RESULT
@@ -52,7 +51,8 @@ class PersonContentProvider : ContentProvider() {
                 return query(
                     TABLE_PERSON,
                     columns,
-                    if (this < 0) selection else "$TABLE_PERSON_COL_ID = $this",
+                    if (this < 0) selection
+                    else "$TABLE_PERSON_COL_ID = $this",
                     arguments,
                     null,
                     null,
@@ -86,7 +86,11 @@ class PersonContentProvider : ContentProvider() {
         selection: String?,
         selectionArgs: Array<out String>?
     ): Int = dbHelper.writableDatabase.run {
-        delete(TABLE_PERSON, selection, selectionArgs).apply {
+        delete(
+            TABLE_PERSON,
+            selection,
+            selectionArgs
+        ).apply {
             return if (this == -1)
                 throw RuntimeException("Failed Update")
             else this

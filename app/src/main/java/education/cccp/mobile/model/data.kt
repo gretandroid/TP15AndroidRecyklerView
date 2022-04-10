@@ -1,5 +1,13 @@
 package education.cccp.mobile.model
 
+import android.annotation.SuppressLint
+import android.content.ContentValues
+import android.database.Cursor
+import education.cccp.mobile.model.Person.Companion.TABLE_PERSON_COL_FIRST_NAME
+import education.cccp.mobile.model.Person.Companion.TABLE_PERSON_COL_ID
+import education.cccp.mobile.model.Person.Companion.TABLE_PERSON_COL_LAST_NAME
+import java.lang.Long.parseLong
+
 @Suppress("unused")
 val metaSyntaxiqueVariables: List<String>
     get() = listOf(
@@ -71,4 +79,32 @@ val generatedPersons: List<Person>
             email = "${it.keys.first().lowercase()}.${it.values.first().lowercase()}@acme.com",
             nickname = "${it.keys.first().lowercase()}.${it.values.first().lowercase()}"
         )
+    }
+
+fun personToContentValues(person: Person): ContentValues =
+    ContentValues().apply {
+        person.apply {
+            if (id != null) put(TABLE_PERSON_COL_ID, id)
+            if (firstName != null) put(TABLE_PERSON_COL_FIRST_NAME, firstName)
+            if (lastName != null) put(TABLE_PERSON_COL_LAST_NAME, lastName)
+            put(Person.TABLE_PERSON_COL_EMAIL, email)
+            put(Person.TABLE_PERSON_COL_NICKNAME, nickname)
+        }
+    }
+
+@SuppressLint("Range")
+fun cursorToPerson(cursor: Cursor?): Person? =
+    cursor?.run {
+        return@cursorToPerson Person(
+            id = parseLong(getString(getColumnIndex(TABLE_PERSON_COL_ID))),
+            email = getString(getColumnIndex(Person.TABLE_PERSON_COL_EMAIL)),
+            nickname = getString(getColumnIndex(Person.TABLE_PERSON_COL_NICKNAME)),
+            firstName = getString(getColumnIndex(TABLE_PERSON_COL_FIRST_NAME)),
+            lastName = getString(getColumnIndex(TABLE_PERSON_COL_LAST_NAME))
+        )
+    }
+
+val generatedPersonsContentValues: List<ContentValues>
+    get() = generatedPersons.map {
+        personToContentValues(it)
     }
