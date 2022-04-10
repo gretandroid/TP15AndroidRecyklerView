@@ -7,19 +7,19 @@ import org.junit.Test
 class PersonsGeneratorUnitTest {
     @Test
     fun output_metaSyntaxiqueVariables_content() {
-        println("\nmetaSyntaxiqueVariables : ")
+        println("\neducation.cccp.mobile.model.getMetaSyntaxiqueVariables : ")
         metaSyntaxiqueVariables.forEach(::println)
     }
 
     @Test
     fun output_metaSyntaxiquePeoples_content() {
-        println("\nmetaSyntaxiquePeoples : ")
+        println("\neducation.cccp.mobile.model.getMetaSyntaxiquePeoples : ")
         metaSyntaxiquePeoples.forEach(::println)
     }
 
     @Test
     fun output_generatedPersons_content() {
-        println("\ngeneratedPersons : ")
+        println("\neducation.cccp.mobile.model.getGeneratedPersons : ")
         generatedPersons.forEach(::println)
     }
 

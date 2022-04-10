@@ -1,9 +1,6 @@
-@file:Suppress("unused")
+package education.cccp.mobile.model
 
-package education.cccp.mobile
-
-import education.cccp.mobile.model.Person
-
+@Suppress("unused")
 val metaSyntaxiqueVariables: List<String>
     get() = listOf(
         "foo",
@@ -64,6 +61,7 @@ val metaSyntaxiquePeoples: List<Map<String, String>>
         mapOf(pair = "Zachery" to "Zoe")
     )
 
+@Suppress("unused")
 val generatedPersons: List<Person>
     get() = metaSyntaxiquePeoples.map {
         Person(

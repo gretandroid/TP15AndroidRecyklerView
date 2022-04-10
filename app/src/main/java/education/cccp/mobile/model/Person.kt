@@ -17,12 +17,13 @@ data class Person(
         const val TABLE_PERSON_COL_LAST_NAME = "last_name"
         const val TABLE_PERSON_COL_EMAIL = "email"
         const val TABLE_PERSON_COL_NICKNAME = "nickname"
-        const val CREATE_TABLE_PERSON =
-            """CREATE TABLE $TABLE_PERSON(
+        const val CREATE_TABLE_PERSON = """
+            CREATE TABLE $TABLE_PERSON(
             |$TABLE_PERSON_COL_ID INTEGER PRIMARY KEY AUTOINCREMENT, 
             |$TABLE_PERSON_COL_FIRST_NAME TEXT NOT NULL, 
             |$TABLE_PERSON_COL_LAST_NAME TEXT NOT NULL, 
             |$TABLE_PERSON_COL_NICKNAME TEXT NOT NULL, 
-            |$TABLE_PERSON_COL_EMAIL TEXT NOT NULL);"""
+            |$TABLE_PERSON_COL_EMAIL TEXT NOT NULL);
+            """
     }
 }
